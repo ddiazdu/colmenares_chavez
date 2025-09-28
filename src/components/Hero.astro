@@ -1,0 +1,59 @@
+<link href="https://fonts.cdnfonts.com/css/quacker" rel="stylesheet" />
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap");
+
+    .span_miel {
+        font-family: "Raleway", sans-serif;
+    }
+
+    .title_quacker {
+        font-family: "Quacker", sans-serif;
+    }
+</style>
+
+<section id="inicio" class="relative h-screen w-full">
+    <!-- Fondo de video -->
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover"
+    >
+        <source src="/video_hero2.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Capa de filtro oscuro -->
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+    <!-- Contenido centrado -->
+    <div
+        class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
+    >
+        <!-- Título con Quacker-Regular -->
+        <h1
+            class="title_quacker text-6xl md:text-9xl text-yellowLight drop-shadow-lg"
+        >
+            Desde el panal a tu mesa
+        </h1>
+
+        <!-- Subtítulo con Raleway -->
+        <p class="span_miel mt-4 text-no md:text-2xl text-cream drop-shadow-md">
+            <p
+                class="span_miel mt-4 text-lg md:text-2xl text-cream drop-shadow-md"
+            >
+                Miel 100% natural, directo desde <span class="font-bold"
+                    >Putaendo, valle del Aconcagua</span
+                >
+            </p>
+        </p>
+
+        <a
+            href="#nosotros"
+            class="mt-8 px-6 py-3 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition"
+        >
+            Conócenos
+        </a>
+    </div>
+</section>
