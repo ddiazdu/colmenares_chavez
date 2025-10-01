@@ -6,13 +6,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        darkBrown: "#603F34",
-        mediumBrown: "#8C6239",
-        yellowLight: "#FAE17A",
-        cream: "#FCF4D5",
-        white: "#FFFFFF",
-      },
+        colors: {
+          darkBrown: "#603F34",
+          mediumBrown: "#8C6239",
+          yellowLight: "#FAE17A",
+          cream: "#FCF4D5",
+          white: "#FFFFFF",
+        },
     },
   },
   plugins: [],

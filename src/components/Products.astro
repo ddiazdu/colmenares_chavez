@@ -21,7 +21,7 @@
     <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
         <!-- Producto 1 -->
         <div
-            class="card-product bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
+            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
         >
             <img
                 src="/products/miel_quillay.png"
@@ -29,51 +29,82 @@
                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
             <div class="p-6 flex flex-col flex-1">
-                <h3 class="product-name text-xl font-bold text-darkBrown mb-2">
-                    Miel 100% natural
-                </h3>
-                <p class="text-mediumBrown font-raleway mb-2 flex-1">
-                    Libre de ingredientes artificiales y edulcorantes
-                </p>
-                <p class="text-mediumBrown font-raleway mb-2 flex-1">
-                    Antibacteriana & antioxidante
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Sin edulcorantes añadidos
-                </p>
-
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition text-center"
+                <span
+                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
+                    >Miel Natural</span
                 >
-                    Pedir
-                </button>
+                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
+                    Miel 100% Natural
+                </h3>
+                <ul
+                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
+                >
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Libre de ingredientes
+                        artificiales
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Antibacteriana
+                        & antioxidante
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Sin edulcorantes
+                        añadidos
+                    </li>
+                </ul>
+                <button
+                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
+                    >Pedir</button
+                >
             </div>
         </div>
 
         <!-- Producto 2 -->
         <div
-            class="card-product bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
+            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
         >
+            <!-- Imagen del producto -->
             <img
                 src="/products/miel_multifloral.png"
-                alt="Miel mulltifloral"
+                alt="Miel Multifloral"
                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
+
+            <!-- Contenido -->
             <div class="p-6 flex flex-col flex-1">
-                <h3 class="product-name text-xl font-bold text-darkBrown mb-2">
-                    Miel 100% natural
+                <!-- Badge de categoría -->
+                <span
+                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
+                >
+                    Miel Natural
+                </span>
+
+                <!-- Título del producto -->
+                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
+                    Miel Multifloral
                 </h3>
-                <p class="text-mediumBrown font-raleway mb-2 flex-1">
-                    Miel de flores endémicas de Putaendo
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Antibacteriana & antioxidante
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Fuente natural de energía
-                </p>
+
+                <!-- Lista de beneficios -->
+                <ul
+                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
+                >
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Flores endémicas
+                        de Putaendo
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Antibacteriana
+                        & antioxidante
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Fuente natural
+                        de energía
+                    </li>
+                </ul>
+
+                <!-- Botón de acción -->
                 <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition text-center"
+                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
                 >
                     Pedir
                 </button>
@@ -82,7 +113,7 @@
 
         <!-- Producto 3 -->
         <div
-            class="card-product bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
+            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
         >
             <img
                 src="/products/miel_multifloral_pet.png"
@@ -90,29 +121,39 @@
                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
             <div class="p-6 flex flex-col flex-1">
-                <h3 class="product-name text-xl font-bold text-darkBrown mb-2">
-                    Miel Multifloral envase Pet
-                </h3>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    libre de ingredientes artificiales y edulcorantes
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Antibacteriana & antioxidante
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Miel de flores endémicas de Putaendo
-                </p>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition text-center"
+                <span
+                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
+                    >Miel Pet</span
                 >
-                    Pedir
-                </button>
+                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
+                    Miel Multifloral Pet
+                </h3>
+                <ul
+                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
+                >
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Flores endémicas
+                        de Putaendo
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Antibacteriana
+                        & antioxidante
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Sin edulcorantes
+                        añadidos
+                    </li>
+                </ul>
+                <button
+                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
+                    >Pedir</button
+                >
             </div>
         </div>
 
         <!-- Producto 4 -->
         <div
-            class="card-product bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
+            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
         >
             <img
                 src="/products/propoleo.png"
@@ -120,29 +161,39 @@
                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
             <div class="p-6 flex flex-col flex-1">
-                <h3 class="product-name text-xl font-bold text-darkBrown mb-2">
+                <span
+                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
+                    >Propóleo</span
+                >
+                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
                     Propóleo
                 </h3>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Antibacteriano Antifúngico Antioxidante
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Fortalece el sistema inmunológico
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Cicatrizante y regenerador natural
-                </p>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition text-center"
+                <ul
+                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
                 >
-                    Pedir
-                </button>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Antibacteriano
+                        & antifúngico
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Fortalece el
+                        sistema inmune
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Cicatrizante
+                        natural
+                    </li>
+                </ul>
+                <button
+                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
+                    >Pedir</button
+                >
             </div>
         </div>
 
         <!-- Producto 5 -->
         <div
-            class="card-product bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
+            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
         >
             <img
                 src="/products/propoleo_spray.png"
@@ -150,117 +201,157 @@
                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
             <div class="p-6 flex flex-col flex-1">
-                <h3 class="product-name text-xl font-bold text-darkBrown mb-2">
+                <span
+                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
+                    >Spray</span
+                >
+                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
                     Propóleo Spray
                 </h3>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Alivio del dolor de garganta
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Antiséptico bucal
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Fortalece el sistema inmunológico
-                </p>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition text-center"
+                <ul
+                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
                 >
-                    Pedir
-                </button>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Alivio del
+                        dolor de garganta
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Antiséptico
+                        bucal
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Fortalece el
+                        sistema inmune
+                    </li>
+                </ul>
+                <button
+                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
+                    >Pedir</button
+                >
             </div>
         </div>
+
         <!-- Producto 6 -->
         <div
-            class="card-product bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
+            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
         >
             <img
                 src="/products/polen.png"
-                alt="polen"
+                alt="Polen"
                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
             <div class="p-6 flex flex-col flex-1">
-                <h3 class="product-name text-xl font-bold text-darkBrown mb-2">
+                <span
+                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
+                    >Polen</span
+                >
+                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
                     Polen
                 </h3>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Fuente de vitaminas y proteinas
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Energizante natural
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Fortalece el sistema inmunológico
-                </p>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition text-center"
+                <ul
+                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
                 >
-                    Pedir
-                </button>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Fuente de vitaminas
+                        y proteínas
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Energizante
+                        natural
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Refuerza el
+                        sistema inmune
+                    </li>
+                </ul>
+                <button
+                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
+                    >Pedir</button
+                >
             </div>
         </div>
+
         <!-- Producto 7 -->
         <div
-            class="card-product bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
+            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
         >
             <img
                 src="/products/cera_abeja.png"
-                alt="Cera Abeja"
+                alt="Cera de Abeja"
                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
             <div class="p-6 flex flex-col flex-1">
-                <h3 class="product-name text-xl font-bold text-darkBrown mb-2">
+                <span
+                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
+                    >Cera</span
+                >
+                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
                     Cera de Abeja
                 </h3>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Ecológica & Biodegradable
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Base de la cosmética natural
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Sellante antibacteriano
-                </p>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition text-center"
+                <ul
+                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
                 >
-                    Pedir
-                </button>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Ecológica &
+                        Biodegradable
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Base para cosmética
+                        natural
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Sellante antibacteriano
+                    </li>
+                </ul>
+                <button
+                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
+                    >Pedir</button
+                >
             </div>
         </div>
 
         <!-- Producto 8 -->
         <div
-            class="card-product bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
+            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
         >
             <img
                 src="/products/velas_cera.png"
-                alt="Velas de cera"
+                alt="Velas de Cera"
                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
             <div class="p-6 flex flex-col flex-1">
-                <h3 class="product-name text-xl font-bold text-darkBrown mb-2">
-                    Velas de cera de Abeja
-                </h3>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Libre de sustancias químicas
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Ecológicas & Biodegradables
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Aromaterapia natural
-                </p>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition text-center"
+                <span
+                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
+                    >Velas</span
                 >
-                    Pedir
-                </button>
+                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
+                    Velas de Cera
+                </h3>
+                <ul
+                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
+                >
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Sin químicos
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Aromaterapia
+                        natural
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Ecológicas
+                        y biodegradables
+                    </li>
+                </ul>
+                <button
+                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
+                    >Pedir</button
+                >
             </div>
         </div>
 
         <!-- Producto 9 -->
         <div
-            class="card-product bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
+            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
         >
             <img
                 src="/products/llaveros.png"
@@ -268,23 +359,31 @@
                 class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
             />
             <div class="p-6 flex flex-col flex-1">
-                <h3 class="product-name text-xl font-bold text-darkBrown mb-2">
-                    Llaveros a crochet
-                </h3>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Producto artesanal del Valle de Putaendo
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Confeccionado con fibras naturales
-                </p>
-                <p class="text-mediumBrown font-raleway mb-4 flex-1">
-                    Variedad de diseños
-                </p>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-yellowLight text-darkBrown font-semibold rounded hover:bg-darkBrown hover:text-yellowLight transition text-center"
+                <span
+                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
+                    >Artesanía</span
                 >
-                    Pedir
-                </button>
+                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
+                    Llaveros a Crochet
+                </h3>
+                <ul
+                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
+                >
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Hechos a mano
+                        en Putaendo
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Fibras naturales
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-darkBrown text-lg">✓</span> Diseños únicos
+                    </li>
+                </ul>
+                <button
+                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
+                    >Pedir</button
+                >
             </div>
         </div>
     </div>

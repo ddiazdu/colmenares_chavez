@@ -1,4 +1,3 @@
-/* Directivas Talwind */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap");
 
 @tailwind base;
@@ -10,6 +9,144 @@ html {
     scroll-behavior: smooth;
     font-family: "Raleway", sans-serif;
 }
-.container__text__about{
+
+.container__text__about {
     margin-bottom: 15rem;
+}
+
+/* ========= GLightbox — Chips Modernos (Opción A v2) ========= */
+/* Paleta (referencia)
+   --darkBrown:  #603F34;
+   --mediumBrown:#8C6239;
+   --yellowLight:#FAE17A;
+   --cream:      #FCF4D5;
+   --white:      #FFFFFF;
+*/
+
+.glightbox-clean .gdesc {
+    position: absolute;
+    top: clamp(10px, 2vw, 18px);
+    left: clamp(10px, 2vw, 18px);
+    z-index: 10;
+    max-width: min(92%, 1200px);
+}
+
+/* Layout de chips (inline) */
+.glightbox-clean .gdesc .gdesc-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    /* fondo “glass” sutil detrás de los chips (apenas perceptible) */
+    position: relative;
+}
+
+@supports (backdrop-filter: blur(6px)) {
+    .glightbox-clean .gdesc .gdesc-inner::before {
+        content: "";
+        position: absolute;
+        inset: -8px -10px;
+        background: linear-gradient(180deg, rgba(96, 63, 52, .28), rgba(96, 63, 52, .18));
+        border-radius: 16px;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border: 1px solid rgba(250, 225, 122, .22);
+        /* borde amarillo muy suave */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .28);
+        z-index: -1;
+    }
+}
+
+/* Chip: TÍTULO (amarillo → moderno) */
+.glightbox-clean .gslide-title {
+    margin: 0;
+    display: inline-block;
+    font-weight: 800;
+    font-size: clamp(.92rem, .85rem + .3vw, 1rem);
+    letter-spacing: .2px;
+    line-height: 1;
+    color: #603F34;
+    /* dark text para accesibilidad */
+    background: linear-gradient(180deg, #FAE17A, #f3d15b);
+    padding: 8px 14px;
+    border-radius: 9999px;
+    border: 1px solid rgba(96, 63, 52, .15);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .16);
+    text-shadow: none;
+}
+
+/* Chip: DESCRIPCIÓN (cream elegante) */
+.glightbox-clean .gslide-desc {
+    margin: 0;
+    display: inline-block;
+    font-weight: 600;
+    font-size: clamp(.88rem, .82rem + .2vw, .95rem);
+    letter-spacing: .1px;
+    line-height: 1;
+    color: #603F34;
+    /* darkBrown */
+    background: linear-gradient(180deg, rgba(252, 244, 213, .95), rgba(252, 244, 213, .85));
+    padding: 8px 12px;
+    border-radius: 9999px;
+    border: 1px solid rgba(96, 63, 52, .12);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .14);
+    text-shadow: none;
+    opacity: .98;
+}
+
+/* Micro-animación de aparición */
+@keyframes cc-fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.glightbox-open .gdesc .gdesc-inner>* {
+    animation: cc-fadeUp .22s ease-out both;
+}
+
+.glightbox-open .gdesc .gdesc-inner>*:nth-child(2) {
+    animation-delay: .04s;
+}
+
+/* Controles con estética de marca */
+.glightbox-clean .gbtn {
+    background: rgba(96, 63, 52, .95);
+    border-radius: 12px;
+    padding: 10px;
+    transition: transform .15s ease, background-color .2s ease, box-shadow .2s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+}
+
+.glightbox-clean .gbtn:hover {
+    background: #8C6239;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .3);
+}
+
+.glightbox-clean .gbtn svg {
+    fill: #FAE17A;
+    width: 18px;
+    height: 18px;
+}
+
+/* Responsivo: en móvil deja solo el título para no tapar la foto */
+@media (max-width: 640px) {
+    .glightbox-clean .gslide-desc {
+        display: none;
+    }
+
+    .glightbox-clean .gslide-title {
+        padding: 6px 12px;
+    }
 }

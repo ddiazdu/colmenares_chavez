@@ -1,0 +1,132 @@
+---
+const items = [
+    {
+        src: "/gallery/paisaje.jpg",
+        title: "Apiario en el paisaje",
+        alt: "Paisaje del apiario con colmenas al pie de los cerros",
+        cls: "md:col-span-2 row-span-3", // HERO grande
+    },
+    {
+        src: "/gallery/abejas_trabajando.jpg",
+        title: "Trabajo en equipo",
+        alt: "Abejas trabajando dentro de la colmena",
+        cls: "row-span-2",
+    },
+    {
+        src: "/gallery/abejas_paisaje.jpg",
+        title: "Polinización natural",
+        alt: "Abejas volando sobre flores silvestres",
+        cls: "",
+    },
+    {
+        src: "/gallery/apicultora_paisaje.jpg",
+        title: "El oficio en acción",
+        alt: "Apicultora revisando colmenas en el campo",
+        cls: "row-span-2", // BAJAR de 3 → 2
+    },
+    {
+        src: "/gallery/apicultores_productos.jpg",
+        title: "De la colmena a tu mesa",
+        alt: "Apicultores mostrando productos y frascos de miel",
+        cls: "",
+    },
+    {
+        src: "/gallery/productos.jpg",
+        title: "Nuestros productos",
+        alt: "Frascos y productos derivados de la miel en mesa de exhibición",
+        cls: "",
+    },
+    {
+        src: "/gallery/equipo.jpg",
+        title: "Seguridad ante todo",
+        alt: "Equipo de protección apícola y herramientas",
+        cls: "md:col-span-2 row-span-2",
+    },
+    {
+        src: "/gallery/arboles.jpg",
+        title: "Entorno natural",
+        alt: "Hilera de árboles en floración cerca del apiario",
+        cls: "",
+    },
+    {
+        src: "/gallery/polen.jpg",
+        title: "El polen de nuestras flores",
+        alt: "Detalle de polen y miel con cucharilla de madera",
+        cls: "row-span-2",
+    },
+    {
+        src: "/gallery/room.jpg",
+        title: "Nuestro espacio de trabajo",
+        alt: "Sala de procesos y almacenamiento de productos apícolas",
+        cls: "row-span-2", // BAJAR de 3 → 2
+    },
+    {
+        src: "/gallery/llaveros.jpg",
+        title: "Detalles únicos",
+        alt: "Llaveros artesanales con temática de abejas",
+        cls: "",
+    },
+    {
+        src: "/gallery/mascota.jpg",
+        title: "Una amigo especial",
+        alt: "Mascota temática de abeja junto a productos de miel",
+        cls: "",
+    },
+];
+---
+
+<section id=galeria class="w-full py-16 px-4 bg-cream">
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-darkBrown">
+                Nuestra Galería Apícola
+            </h2>
+            <p class="mt-2 text-mediumBrown">
+                Una historia de abejas, miel y familia en cada imagen
+            </p>
+        </header>
+
+        <!-- Contenedor más angosto para que no se vea de borde a borde -->
+        <div class="max-w-5xl mx-auto">
+            <div
+                class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[220px] grid-flow-dense"
+            >
+                {
+                    items.map((it) => (
+                        <a
+                            href={it.src}
+                            class={`glightbox group relative overflow-hidden rounded-2xl shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-yellowLight ${it.cls}`}
+                            data-glightbox={``}
+                            aria-label={it.title}
+                        >
+                            <img
+                                src={it.src}
+                                alt={it.alt}
+                                loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div class="pointer-events-none absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <span class="inline-block bg-white/90 text-darkBrown text-sm md:text-base px-3 py-1.5 rounded-xl shadow">
+                                    {it.title}
+                                </span>
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import GLightbox from "glightbox";
+    import "glightbox/dist/css/glightbox.css";
+    const lightbox = GLightbox({
+        selector: "a[data-glightbox]",
+        touchNavigation: true,
+        loop: true,
+        closeOnOutsideClick: true,
+    });
+</script>
