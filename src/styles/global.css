@@ -150,3 +150,34 @@ html {
         padding: 6px 12px;
     }
 }
+
+@keyframes tickPop {
+    0% {
+        transform: translate(-50%, 0) scale(.6);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translate(-50%, 0) scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.tick-show {
+    animation: tickPop .35s ease-out forwards;
+}
+
+.tick-fade {
+    animation: fadeOut .6s ease forwards;
+}

@@ -1,3 +1,7 @@
+---
+import emailjs from "@emailjs/browser";
+---
+
 <section id="contacto" class="w-full py-16 px-4 bg-cream">
     <div class="max-w-4xl mx-auto">
         <header class="mb-8 text-center">
@@ -56,52 +60,8 @@
                     Enviar
                 </button>
 
-                <!-- Animación: bee en envío + check en éxito -->
-                <div
-                    id="send-anim"
-                    class="relative h-9 w-full overflow-visible pointer-events-none"
-                >
-                    <!-- Abejita -->
-                    <div id="bee" class="absolute left-0 top-0 opacity-0">
-                        <svg
-                            viewBox="0 0 64 64"
-                            width="28"
-                            height="28"
-                            aria-hidden="true"
-                        >
-                            <g>
-                                <ellipse
-                                    cx="28"
-                                    cy="36"
-                                    rx="18"
-                                    ry="12"
-                                    fill="#FAE17A"></ellipse>
-                                <rect
-                                    x="16"
-                                    y="28"
-                                    width="24"
-                                    height="16"
-                                    rx="8"
-                                    fill="#603F34"
-                                    opacity=".35"></rect>
-                                <ellipse
-                                    cx="44"
-                                    cy="28"
-                                    rx="10"
-                                    ry="7"
-                                    fill="#FCF4D5"
-                                    opacity=".8"></ellipse>
-                                <circle cx="46" cy="36" r="4" fill="#603F34"
-                                ></circle>
-                                <circle
-                                    cx="48.5"
-                                    cy="34.5"
-                                    r="1.2"
-                                    fill="#FFFFFF"></circle>
-                            </g>
-                        </svg>
-                    </div>
-                    <!-- Check -->
+                <!-- Check (centro, aparece al éxito) -->
+                <div class="relative h-9 w-full pointer-events-none">
                     <div
                         id="tick"
                         class="absolute left-1/2 -translate-x-1/2 top-0 opacity-0"
@@ -131,87 +91,32 @@
     </div>
 </section>
 
-<!-- Estilos de la animación (puedes moverlos a global.css si prefieres) -->
-<style is:global>
-    @keyframes beeFlight {
-        0% {
-            transform: translateX(0) translateY(0) rotate(0deg);
-        }
-        25% {
-            transform: translateX(25%) translateY(-6px) rotate(10deg);
-        }
-        50% {
-            transform: translateX(50%) translateY(4px) rotate(-8deg);
-        }
-        75% {
-            transform: translateX(75%) translateY(-5px) rotate(6deg);
-        }
-        100% {
-            transform: translateX(calc(100% - 40px)) translateY(0) rotate(0deg);
-        }
-    }
-    .bee-active {
-        animation: beeFlight 1.2s ease-in-out infinite;
-        opacity: 1 !important;
-    }
-    @keyframes tickPop {
-        0% {
-            transform: translate(-50%, 0) scale(0.6);
-            opacity: 0;
-        }
-        60% {
-            transform: translate(-50%, 0) scale(1.08);
-            opacity: 1;
-        }
-        100% {
-            transform: translate(-50%, 0) scale(1);
-            opacity: 1;
-        }
-    }
-    .tick-show {
-        animation: tickPop 0.38s ease-out forwards;
-    }
-    /* Pequeño fade-out general si quieres ocultar después de un rato */
-    .fade-out {
-        animation: fadeOut 0.6s ease forwards;
-    }
-    @keyframes fadeOut {
-        to {
-            opacity: 0;
-        }
-    }
-</style>
-
-<!-- Lógica EmailJS + animaciones -->
 <script>
     import emailjs from "@emailjs/browser";
 
-    const PUBLIC_KEY = "q5iBEQD7a3pXNX_16";
-    const SERVICE_ID = "service_rxzrli5";
-    const TEMPLATE_ADMIN = "template_omw9gxl";
-    const TEMPLATE_AUTOREP = "template_dd7vwsq";
+    const {
+        PUBLIC_EMAILJS_KEY: PUBLIC_KEY,
+        PUBLIC_EMAILJS_SERVICE: SERVICE_ID,
+        PUBLIC_EMAILJS_TEMPLATE_ADMIN: TEMPLATE_ADMIN,
+        PUBLIC_EMAILJS_TEMPLATE_AUTOREP: TEMPLATE_AUTOREP,
+    } = import.meta.env;
 
     emailjs.init(PUBLIC_KEY);
 
     const form = document.getElementById("contact-form")!;
     const statusEl = document.getElementById("form-status")!;
     const btn = document.getElementById("send-btn")! as HTMLButtonElement;
-
-    // Anim refs
-    const bee = document.getElementById("bee")!;
     const tick = document.getElementById("tick")!;
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        // UI: enviando + bee vuela
+        // UI: enviando
         btn.disabled = true;
         const original = btn.textContent;
         btn.textContent = "Enviando…";
-        statusEl.textContent = "Enviando…";
         statusEl.className = "text-sm text-mediumBrown";
-        bee.classList.add("bee-active");
-        tick.classList.remove("tick-show");
+        tick.classList.remove("tick-show", "tick-fade");
 
         const data = new FormData(form);
         const payload = {
@@ -221,32 +126,29 @@
         };
 
         try {
-            // 1) admin
+            // 1) correo interno para ti
             await emailjs.send(SERVICE_ID, TEMPLATE_ADMIN, payload);
-            // 2) auto-reply
+            // 2) autorespuesta al usuario
             await emailjs.send(SERVICE_ID, TEMPLATE_AUTOREP, payload);
 
-            // Exito: mostramos check
-            bee.classList.remove("bee-active");
+            // éxito: check y mensaje
             tick.classList.add("tick-show");
-            statusEl.textContent =
-                "✅ ¡Gracias! Tu mensaje fue enviado correctamente.";
+            statusEl.textContent = "✅ ¡Gracias! Tu mensaje fue enviado.";
             statusEl.className = "text-sm text-green-700";
             form.reset();
 
-            // ✅ El texto de éxito desaparece luego de 2s
+            // ocultar mensaje y check a los 2s
             setTimeout(() => {
                 statusEl.textContent = "";
+                tick.classList.add("tick-fade");
             }, 2000);
 
-            // Check desaparece un poco después
-            setTimeout(() => tick.classList.add("fade-out"), 2500);
+            // limpiar anim clases después del fade
             setTimeout(() => {
-                tick.classList.remove("fade-out", "tick-show");
-            }, 3200);
+                tick.classList.remove("tick-show", "tick-fade");
+            }, 2600);
         } catch (err) {
             console.error(err);
-            bee.classList.remove("bee-active");
             statusEl.textContent =
                 "❌ No se pudo enviar. Intenta nuevamente o escríbenos por WhatsApp.";
             statusEl.className = "text-sm text-red-700";
