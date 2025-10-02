@@ -1,0 +1,258 @@
+<section id="contacto" class="w-full py-16 px-4 bg-cream">
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-darkBrown">
+                Contacto
+            </h2>
+            <p class="mt-2 text-mediumBrown">
+                ¿Tienes dudas o quieres agendar una charla? Escríbenos y
+                conversemos.
+            </p>
+        </header>
+
+        <form
+            id="contact-form"
+            class="bg-white rounded-2xl shadow p-6 space-y-4"
+        >
+            <label class="block">
+                <span class="text-darkBrown text-sm">Nombre</span>
+                <input
+                    type="text"
+                    name="nombre"
+                    required
+                    placeholder="Tu nombre"
+                    class="mt-1 w-full rounded-xl border border-mediumBrown/30 px-3 py-2 outline-none focus:border-yellowLight focus:ring-yellowLight"
+                />
+            </label>
+
+            <label class="block">
+                <span class="text-darkBrown text-sm">Correo</span>
+                <input
+                    type="email"
+                    name="correo"
+                    required
+                    placeholder="tu@correo.com"
+                    class="mt-1 w-full rounded-xl border border-mediumBrown/30 px-3 py-2 outline-none focus:border-yellowLight focus:ring-yellowLight"
+                />
+            </label>
+
+            <label class="block">
+                <span class="text-darkBrown text-sm">Mensaje</span>
+                <textarea
+                    name="mensaje"
+                    required
+                    rows="5"
+                    placeholder="Cuéntanos en qué te ayudamos"
+                    class="mt-1 w-full rounded-xl border border-mediumBrown/30 px-3 py-2 outline-none focus:border-yellowLight focus:ring-yellowLight"
+                ></textarea>
+            </label>
+
+            <div class="flex flex-col gap-2">
+                <button
+                    id="send-btn"
+                    type="submit"
+                    class="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-darkBrown text-white px-5 py-2.5 font-medium hover:bg-mediumBrown transition"
+                >
+                    Enviar
+                </button>
+
+                <!-- Animación: bee en envío + check en éxito -->
+                <div
+                    id="send-anim"
+                    class="relative h-9 w-full overflow-visible pointer-events-none"
+                >
+                    <!-- Abejita -->
+                    <div id="bee" class="absolute left-0 top-0 opacity-0">
+                        <svg
+                            viewBox="0 0 64 64"
+                            width="28"
+                            height="28"
+                            aria-hidden="true"
+                        >
+                            <g>
+                                <ellipse
+                                    cx="28"
+                                    cy="36"
+                                    rx="18"
+                                    ry="12"
+                                    fill="#FAE17A"></ellipse>
+                                <rect
+                                    x="16"
+                                    y="28"
+                                    width="24"
+                                    height="16"
+                                    rx="8"
+                                    fill="#603F34"
+                                    opacity=".35"></rect>
+                                <ellipse
+                                    cx="44"
+                                    cy="28"
+                                    rx="10"
+                                    ry="7"
+                                    fill="#FCF4D5"
+                                    opacity=".8"></ellipse>
+                                <circle cx="46" cy="36" r="4" fill="#603F34"
+                                ></circle>
+                                <circle
+                                    cx="48.5"
+                                    cy="34.5"
+                                    r="1.2"
+                                    fill="#FFFFFF"></circle>
+                            </g>
+                        </svg>
+                    </div>
+                    <!-- Check -->
+                    <div
+                        id="tick"
+                        class="absolute left-1/2 -translate-x-1/2 top-0 opacity-0"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            width="28"
+                            height="28"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="11" fill="#22c55e"
+                            ></circle>
+                            <path
+                                d="M7 12.5l3.2 3.2L17 9.8"
+                                fill="none"
+                                stroke="#fff"
+                                stroke-width="2.2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <p id="form-status" class="text-sm mt-1"></p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Estilos de la animación (puedes moverlos a global.css si prefieres) -->
+<style is:global>
+    @keyframes beeFlight {
+        0% {
+            transform: translateX(0) translateY(0) rotate(0deg);
+        }
+        25% {
+            transform: translateX(25%) translateY(-6px) rotate(10deg);
+        }
+        50% {
+            transform: translateX(50%) translateY(4px) rotate(-8deg);
+        }
+        75% {
+            transform: translateX(75%) translateY(-5px) rotate(6deg);
+        }
+        100% {
+            transform: translateX(calc(100% - 40px)) translateY(0) rotate(0deg);
+        }
+    }
+    .bee-active {
+        animation: beeFlight 1.2s ease-in-out infinite;
+        opacity: 1 !important;
+    }
+    @keyframes tickPop {
+        0% {
+            transform: translate(-50%, 0) scale(0.6);
+            opacity: 0;
+        }
+        60% {
+            transform: translate(-50%, 0) scale(1.08);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, 0) scale(1);
+            opacity: 1;
+        }
+    }
+    .tick-show {
+        animation: tickPop 0.38s ease-out forwards;
+    }
+    /* Pequeño fade-out general si quieres ocultar después de un rato */
+    .fade-out {
+        animation: fadeOut 0.6s ease forwards;
+    }
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+</style>
+
+<!-- Lógica EmailJS + animaciones -->
+<script>
+    import emailjs from "@emailjs/browser";
+
+    const PUBLIC_KEY = "q5iBEQD7a3pXNX_16";
+    const SERVICE_ID = "service_rxzrli5";
+    const TEMPLATE_ADMIN = "template_omw9gxl";
+    const TEMPLATE_AUTOREP = "template_dd7vwsq";
+
+    emailjs.init(PUBLIC_KEY);
+
+    const form = document.getElementById("contact-form")!;
+    const statusEl = document.getElementById("form-status")!;
+    const btn = document.getElementById("send-btn")! as HTMLButtonElement;
+
+    // Anim refs
+    const bee = document.getElementById("bee")!;
+    const tick = document.getElementById("tick")!;
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // UI: enviando + bee vuela
+        btn.disabled = true;
+        const original = btn.textContent;
+        btn.textContent = "Enviando…";
+        statusEl.textContent = "Enviando…";
+        statusEl.className = "text-sm text-mediumBrown";
+        bee.classList.add("bee-active");
+        tick.classList.remove("tick-show");
+
+        const data = new FormData(form);
+        const payload = {
+            nombre: data.get("nombre"),
+            correo: data.get("correo"),
+            mensaje: data.get("mensaje"),
+        };
+
+        try {
+            // 1) admin
+            await emailjs.send(SERVICE_ID, TEMPLATE_ADMIN, payload);
+            // 2) auto-reply
+            await emailjs.send(SERVICE_ID, TEMPLATE_AUTOREP, payload);
+
+            // Exito: mostramos check
+            bee.classList.remove("bee-active");
+            tick.classList.add("tick-show");
+            statusEl.textContent =
+                "✅ ¡Gracias! Tu mensaje fue enviado correctamente.";
+            statusEl.className = "text-sm text-green-700";
+            form.reset();
+
+            // ✅ El texto de éxito desaparece luego de 2s
+            setTimeout(() => {
+                statusEl.textContent = "";
+            }, 2000);
+
+            // Check desaparece un poco después
+            setTimeout(() => tick.classList.add("fade-out"), 2500);
+            setTimeout(() => {
+                tick.classList.remove("fade-out", "tick-show");
+            }, 3200);
+        } catch (err) {
+            console.error(err);
+            bee.classList.remove("bee-active");
+            statusEl.textContent =
+                "❌ No se pudo enviar. Intenta nuevamente o escríbenos por WhatsApp.";
+            statusEl.className = "text-sm text-red-700";
+        } finally {
+            btn.disabled = false;
+            btn.textContent = original || "Enviar";
+        }
+    });
+</script>
