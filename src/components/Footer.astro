@@ -1,42 +1,130 @@
-<footer class="w-full bg-darkBrown text-white py-10 px-4">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-    
-    <!-- Logo o Nombre -->
-    <div class="flex items-center gap-2">
-      <!-- Si tienes logo -->
-      <!-- <img src="/logo.png" alt="Colmenares Chávez" class="h-10" /> -->
-      <span class="text-xl font-semibold tracking-wide">Colmenares Chávez</span>
+---
+const year = new Date().getFullYear();
+const IG_URL = "https://instagram.com/colmenareschavez";
+const WA_URL = "https://wa.me/569XXXXXXXX";
+const MAIL = "contacto@colmenareschavez.cl";
+---
+
+<footer class="w-full bg-darkBrown text-white">
+  <div class="max-w-6xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-3">
+    <!-- Marca -->
+    <div>
+      <!-- <img src="/logo.png" alt="Colmenares Chávez" class="h-10 mb-3" /> -->
+      <h3 class="text-xl font-semibold tracking-wide">Colmenares Chávez</h3>
+      <p class="mt-2 text-cream/80">
+        Apicultura familiar · Charlas y productos artesanales.
+      </p>
+      <address class="not-italic mt-3 text-cream/70">
+        Putaendo, Chile
+      </address>
     </div>
 
-    <!-- Redes sociales -->
-    <div class="flex items-center gap-6">
-      <a 
-        href="https://instagram.com/colmenareschavez"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-yellowLight transition"
+    <!-- Navegación breve -->
+    <nav
+      aria-label="Footer"
+      class="grid grid-cols-2 gap-2 md:justify-items-center"
+    >
+      <a
+        href="/"
+        class="hover:text-yellowLight focus:outline-none focus-visible:ring-2 ring-yellowLight rounded px-1"
+        >Inicio</a
       >
-        Instagram
-      </a>
-      <a 
-        href="https://wa.me/569XXXXXXXX"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-yellowLight transition"
+      <a
+        href="/galeria"
+        class="hover:text-yellowLight focus:outline-none focus-visible:ring-2 ring-yellowLight rounded px-1"
+        >Galería</a
       >
-        WhatsApp
-      </a>
-      <a 
-        href="mailto:contacto@colmenareschavez.cl"
-        class="hover:text-yellowLight transition"
+      <a
+        href="/talks"
+        class="hover:text-yellowLight focus:outline-none focus-visible:ring-2 ring-yellowLight rounded px-1"
+        >Charlas</a
       >
-        Correo
-      </a>
-    </div>
+      <a
+        href="/contacto"
+        class="hover:text-yellowLight focus:outline-none focus-visible:ring-2 ring-yellowLight rounded px-1"
+        >Contacto</a
+      >
+    </nav>
 
-    <!-- Copyright -->
-    <div class="text-sm text-cream/80 text-center md:text-right">
-      © 2025 Colmenares Chávez. Todos los derechos reservados.
+    <!-- Contacto / Redes -->
+    <div class="md:text-right">
+      <ul class="space-y-2">
+        <li>
+          <a
+            href={`mailto:${MAIL}`}
+            class="underline hover:text-yellowLight focus:outline-none focus-visible:ring-2 ring-yellowLight rounded px-1"
+          >
+            {MAIL}
+          </a>
+        </li>
+        <li class="flex md:justify-end gap-4 mt-3">
+          <!-- Instagram -->
+          <a
+            href={IG_URL}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition focus:outline-none focus-visible:ring-2 ring-yellowLight"
+            aria-label="Instagram"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
+                stroke="currentColor"
+                stroke-width="1.5"></path>
+              <circle
+                cx="12"
+                cy="12"
+                r="3.5"
+                stroke="currentColor"
+                stroke-width="1.5"></circle>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle>
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a
+            href={WA_URL}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition focus:outline-none focus-visible:ring-2 ring-yellowLight"
+            aria-label="WhatsApp"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M20.5 12A8.5 8.5 0 0 1 8.3 20.1L4 21.5l1.4-4.2A8.5 8.5 0 1 1 20.5 12Z"
+                stroke="currentColor"
+                stroke-width="1.5"></path>
+              <path
+                d="M8.8 9.5c0 3 3.7 5.7 4.7 5.7.9 0 1.8-.8 2.1-1.4.3-.6-.2-.8-.8-1.1-.3-.1-.7-.3-.9-.2-.2.1-.5.7-.7.7-.3 0-1.6-.7-2.5-1.7-.9-1-.9-1.4-.8-1.6 0-.2.6-.4.7-.7.1-.2 0-.6-.1-.9-.2-.6-.5-1.1-1-1.1-.5 0-1.6.6-1.7 1.8Z"
+                fill="currentColor"></path>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div
+      class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between text-cream/80 text-sm"
+    >
+      <span>© {year} Colmenares Chávez</span>
+      <a
+        href="#top"
+        class="hover:text-yellowLight focus:outline-none focus-visible:ring-2 ring-yellowLight rounded px-1"
+        >Volver arriba ↑</a
+      >
     </div>
   </div>
 </footer>
