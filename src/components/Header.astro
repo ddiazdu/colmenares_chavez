@@ -1,5 +1,10 @@
-<header class="sticky top-0 bg-cream shadow-md z-50 bg-[url('/banner.png')] bg-repeat">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between relative ">
+<header
+  id="main-header"
+  class="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm shadow transition-transform duration-300 bg-[url('/banner.png')] bg-repeat"
+>
+  <div
+    class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between relative"
+  >
     <!-- Logo -->
     <div class="flex items-center space-x-2">
       <img src="/logo_horizontal.svg" alt="Colmenares Chavez" class="w-60" />
@@ -7,61 +12,122 @@
     </div>
 
     <!-- Navegación escritorio -->
-    <nav class="hidden md:flex space-x-6 font-medium ">
-      <a href="#inicio" class="text-darkBrown hover:text-mediumBrown transition">Inicio</a>
-      <a href="#nosotros" class="text-darkBrown hover:text-mediumBrown transition">Nosotros</a>
-      <a href="#productos" class="text-darkBrown hover:text-mediumBrown transition">Productos</a>
-      <a href="#galeria" class="text-darkBrown hover:text-mediumBrown transition">Galería</a>
-      <a href="#contacto" class="text-darkBrown hover:text-mediumBrown transition">Contacto</a>
+    <nav class="hidden md:flex space-x-6 font-medium">
+      <a href="#inicio" class="text-darkBrown hover:text-mediumBrown transition"
+        >Inicio</a
+      >
+      <a
+        href="#nosotros"
+        class="text-darkBrown hover:text-mediumBrown transition">Nosotros</a
+      >
+      <a
+        href="#productos"
+        class="text-darkBrown hover:text-mediumBrown transition">Productos</a
+      >
+      <a
+        href="#galeria"
+        class="text-darkBrown hover:text-mediumBrown transition">Galería</a
+      >
+      <a
+        href="#contacto"
+        class="text-darkBrown hover:text-mediumBrown transition">Contacto</a
+      >
     </nav>
 
     <!-- Botón hamburguesa móvil -->
-    <button id="menu-btn" class="md:hidden relative w-6 h-6 flex flex-col justify-between items-center focus:outline-none">
-      <span class="absolute top-0 block h-0.5 w-full bg-darkBrown transition-all duration-300 origin-center"></span>
-      <span class="absolute top-1/2 block h-0.5 w-full bg-darkBrown transition-all duration-300 origin-center -translate-y-1/2"></span>
-      <span class="absolute bottom-0 block h-0.5 w-full bg-darkBrown transition-all duration-300 origin-center"></span>
+    <button
+      id="menu-btn"
+      class="md:hidden relative w-6 h-6 flex flex-col justify-between items-center focus:outline-none"
+    >
+      <span
+        class="absolute top-0 block h-0.5 w-full bg-darkBrown transition-all duration-300 origin-center"
+      ></span>
+      <span
+        class="absolute top-1/2 block h-0.5 w-full bg-darkBrown transition-all duration-300 origin-center -translate-y-1/2"
+      ></span>
+      <span
+        class="absolute bottom-0 block h-0.5 w-full bg-darkBrown transition-all duration-300 origin-center"
+      ></span>
     </button>
   </div>
 
   <!-- Menú móvil simple -->
-  <nav id="mobile-menu" class="md:hidden inset-0 flex flex-col items-center justify-center space-y-6 text-2xl font-semibold hidden">
-    <a href="#inicio" class="text-darkBrown hover:text-mediumBrown transition">Inicio</a>
-    <a href="#nosotros" class="text-darkBrown hover:text-mediumBrown transition">Nosotros</a>
-    <a href="#productos" class="text-darkBrown hover:text-mediumBrown transition">Productos</a>
-    <a href="#galeria" class="text-darkBrown hover:text-mediumBrown transition">Galería</a>
-    <a href="#contacto" class="text-darkBrown hover:text-mediumBrown transition pb-5">Contacto</a>
+  <nav
+    id="mobile-menu"
+    class="md:hidden inset-0 flex flex-col items-center justify-center space-y-6 text-2xl font-semibold hidden"
+  >
+    <a href="#inicio" class="text-darkBrown hover:text-mediumBrown transition"
+      >Inicio</a
+    >
+    <a href="#nosotros" class="text-darkBrown hover:text-mediumBrown transition"
+      >Nosotros</a
+    >
+    <a
+      href="#productos"
+      class="text-darkBrown hover:text-mediumBrown transition">Productos</a
+    >
+    <a href="#galeria" class="text-darkBrown hover:text-mediumBrown transition"
+      >Galería</a
+    >
+    <a
+      href="#contacto"
+      class="text-darkBrown hover:text-mediumBrown transition pb-5">Contacto</a
+    >
   </nav>
 </header>
 
 <script>
-const btn = document.getElementById("menu-btn");
-const menu = document.getElementById("mobile-menu");
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
 
-if (btn && menu) {
-  const [topLine, middleLine, bottomLine] = btn.querySelectorAll("span");
-  let open = false;
+  if (btn && menu) {
+    const [topLine, middleLine, bottomLine] = btn.querySelectorAll("span");
+    let open = false;
 
-  btn.addEventListener("click", () => {
-    open = !open;
-    menu.classList.toggle("hidden");
+    btn.addEventListener("click", () => {
+      open = !open;
+      menu.classList.toggle("hidden");
 
-    if (open) {
-      topLine.classList.add("rotate-45", "top-1/2");
-      topLine.classList.remove("top-0");
+      if (open) {
+        topLine.classList.add("rotate-45", "top-1/2");
+        topLine.classList.remove("top-0");
 
-      middleLine.classList.add("opacity-0");
+        middleLine.classList.add("opacity-0");
 
-      bottomLine.classList.add("-rotate-45", "top-1/2");
-      bottomLine.classList.remove("bottom-0");
-    } else {
-      topLine.classList.remove("rotate-45", "top-1/2");
-      topLine.classList.add("top-0");
+        bottomLine.classList.add("-rotate-45", "top-1/2");
+        bottomLine.classList.remove("bottom-0");
+      } else {
+        topLine.classList.remove("rotate-45", "top-1/2");
+        topLine.classList.add("top-0");
 
-      middleLine.classList.remove("opacity-0");
+        middleLine.classList.remove("opacity-0");
 
-      bottomLine.classList.remove("-rotate-45", "top-1/2");
-      bottomLine.classList.add("bottom-0");
+        bottomLine.classList.remove("-rotate-45", "top-1/2");
+        bottomLine.classList.add("bottom-0");
+      }
+    });
+  }
+
+  /* Scroll */
+  let lastScrollY = window.scrollY;
+  const header = document.getElementById("main-header");
+
+  window.addEventListener("scroll", () => {
+    if (!header) return;
+    const currentY = window.scrollY;
+
+    // Si bajamos -> esconder header
+    if (currentY > lastScrollY && currentY > 100) {
+      header.style.transform = "translateY(-100%)";
+      header.style.boxShadow = "none"; // sin sombra cuando se esconde
     }
+    // Si subimos -> mostrar header
+    else {
+      header.style.transform = "translateY(0)";
+      header.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)"; // sombra más marcada
+    }
+
+    lastScrollY = currentY;
   });
-}
+  /* Fin Scroll */
 </script>
