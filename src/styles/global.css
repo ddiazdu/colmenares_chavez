@@ -181,3 +181,46 @@ html {
 .tick-fade {
     animation: fadeOut .6s ease forwards;
 }
+
+
+/* page 404  */
+
+.bg-cream {
+    background-color: #fff8f1;
+}
+
+.text-darkBrown {
+    color: #4b2e05;
+}
+
+.text-mediumBrown {
+    color: #8b5e34;
+}
+
+.text-yellowLight {
+    color: #fcd34d;
+}
+
+.hover\:bg-mediumBrown:hover {
+    background-color: #8b5e34;
+}
+
+.hover\:text-white:hover {
+    color: #fff;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}

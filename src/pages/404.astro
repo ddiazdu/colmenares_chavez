@@ -1,0 +1,75 @@
+---
+import "../styles/global.css";
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        <title>404 — Colmenares Chávez</title>
+
+        <!-- Fuente del título -->
+        <link href="https://fonts.cdnfonts.com/css/quacker" rel="stylesheet" />
+
+        <!-- Lottie player (web component) -->
+        <script
+            src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+        ></script>
+
+        <style>
+            .quacker {
+                font-family:
+                    "Quacker",
+                    system-ui,
+                    -apple-system,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                letter-spacing: 0.02em;
+            }
+        </style>
+    </head>
+
+    <body
+        class="bg-cream text-darkBrown min-h-screen flex items-center justify-center"
+    >
+        <section
+            class="relative w-full max-w-3xl mx-auto text-center px-6 py-16"
+        >
+            <!-- Abejita animada -->
+            <lottie-player
+                src="/animations/Bee_looking.json"
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+                style="width: 180px; height: 180px; margin: 0 auto 16px; pointer-events: none;"
+            ></lottie-player>
+
+            <h1 class="quacker text-4xl md:text-6xl mb-3">
+                404 — Página no encontrada
+            </h1>
+
+            <p class="text-mediumBrown max-w-xl mx-auto">
+                Parece que esta abeja se desvió del panal. Revisa la dirección o
+                vuelve al inicio para seguir explorando 🐝
+            </p>
+
+            <a
+                href="/"
+                class="inline-flex items-center justify-center mt-8 rounded-xl bg-yellowLight text-darkBrown px-6 py-3 font-semibold shadow hover:bg-mediumBrown hover:text-white transition"
+            >
+                Volver al inicio
+            </a>
+
+            <footer class="mt-12 text-sm opacity-60">
+                © {year} Colmenares Chávez
+            </footer>
+        </section>
+    </body>
+</html>
