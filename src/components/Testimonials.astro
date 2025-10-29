@@ -1,0 +1,175 @@
+---
+/* src/components/Testimonials.astro */
+const reviews = [
+  {
+    name: "Eduardo M",
+    rating: 5,
+    text:
+      "Excelente servicio. Fui por miel con mi familia y nos llevamos una visita y explicación de todo el proceso de las abejas. Muy buena experiencia y la señora Lila un 7.",
+  },
+  {
+    name: "Vanessa Toro",
+    rating: 5,
+    text:
+      "Miel de calidad garantizada. Productores con experiencia y conscientes con el medio y las abejitas. Muy buena atención y muy buena relación calidad-precio. Me encantó.",
+  },
+  {
+    name: "Edite Barbosa",
+    rating: 5,
+    text:
+      "Miel de primerísima calidad, pura y sin adulteración. Óptimo precio. Atención amable.",
+  },
+  {
+    name: "Veronica Andrea Duran Sandoval",
+    rating: 5,
+    text:
+      "La mejor miel, fabulosa. 100% recomendado.",
+  },
+  {
+    name: "Catherine Vilches",
+    rating: 5,
+    text:
+      "Exquisita miel, hermoso lugar y muy amables con la atención.",
+  },
+];
+---
+
+<section class="w-full py-16 px-4 bg-cream">
+  <div class="max-w-6xl mx-auto">
+    <!-- encabezado -->
+    <header class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-darkBrown">
+        Lo que dice la gente
+      </h2>
+
+      <p class="mt-2 text-mediumBrown text-base md:text-lg">
+        Opiniones reales de quienes han venido, probado y confiado en nuestra miel
+      </p>
+
+      <!-- reputación -->
+      <div
+        class="mt-6 inline-flex items-center justify-center gap-2 text-[12px] md:text-[13px] text-mediumBrown bg-white/60 border border-mediumBrown/20 rounded-full px-4 py-2 shadow-sm"
+      >
+        <span class="text-yellowLight text-sm leading-none">★★★★★</span>
+        <span class="text-darkBrown font-medium leading-none">5.0/5</span>
+        <span class="text-mediumBrown leading-none">en reseñas de clientes</span>
+      </div>
+    </header>
+
+    <!-- mobile: carrusel horizontal -->
+    <div class="md:hidden overflow-x-auto scrollbar-none pb-4">
+      <div class="flex gap-4 w-max">
+        {reviews.map((rev, i) => (
+          <article
+            class="relative w-[260px] shrink-0 bg-white/70 border border-mediumBrown/10 shadow-sm rounded-2xl p-5 flex flex-col overflow-hidden reveal"
+            style={`--d:${i}`}
+          >
+            <!-- comillas decorativas -->
+            <span
+              class="absolute text-[100px] text-mediumBrown/10 font-serif leading-none top-0 left-3 select-none pointer-events-none"
+              aria-hidden="true"
+            >“</span>
+
+            <div class="flex items-center gap-2 mb-3 z-10">
+              <div class="text-yellowLight text-base leading-none">
+                {"★".repeat(rev.rating)}
+              </div>
+              <span class="text-[12px] text-mediumBrown leading-none">
+                {rev.rating}.0
+              </span>
+            </div>
+
+            <p class="text-darkBrown text-sm leading-relaxed flex-1 z-10 relative">
+              {rev.text}
+            </p>
+
+            <div class="mt-4 text-sm font-medium text-mediumBrown z-10">
+              {rev.name}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <p class="md:hidden text-center text-[12px] text-mediumBrown/70 mt-2 select-none">
+      Desliza para ver más ➜
+    </p>
+
+    <!-- desktop: grid 3 columnas -->
+    <div class="hidden md:grid md:grid-cols-3 gap-6">
+      {reviews.map((rev, i) => (
+        <article
+          class="relative bg-white/70 border border-mediumBrown/10 shadow-sm rounded-2xl p-6 flex flex-col overflow-hidden hover:shadow-md transition reveal"
+          style={`--d:${i}`}
+        >
+          <!-- comillas decorativas -->
+          <span
+            class="absolute text-[140px] text-mediumBrown/10 font-serif leading-none top-0 left-5 select-none pointer-events-none"
+            aria-hidden="true"
+          >“</span>
+
+          <div class="flex items-center gap-2 mb-3 z-10">
+            <div class="text-yellowLight text-base leading-none">
+              {"★".repeat(rev.rating)}
+            </div>
+            <span class="text-[12px] text-mediumBrown leading-none">
+              {rev.rating}.0
+            </span>
+          </div>
+
+          <p class="text-darkBrown text-base leading-relaxed flex-1 z-10 relative">
+            {rev.text}
+          </p>
+
+          <div class="mt-4 text-sm font-medium text-mediumBrown z-10">
+            {rev.name}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="hidden md:block text-center text-[12px] text-mediumBrown/70 mt-6">
+      Más reseñas disponibles en Google Maps
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Ocultar scrollbar en navegadores WebKit (carrusel mobile) */
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  /* Animación de revelado (fade-up) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: opacity, transform;
+    transition:
+      opacity 420ms ease,
+      transform 420ms ease;
+    transition-delay: calc(var(--d, 0) * 60ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Respeto a usuarios con reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+  }
+</style>
+
+<!-- IntersectionObserver para animar al entrar en viewport -->
+<script is:inline>
+  const opts = { threshold: 0.15, rootMargin: "0px 0px -10% 0px" };
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.classList.add("is-visible");
+        io.unobserve(e.target); // una vez animada, no observar más
+      }
+    }
+  }, opts);
+
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+</script>
