@@ -1,5 +1,5 @@
 ---
-const ADDRESS_TXT = "Calle San Antonio 10, Putaendo, 2190000 Valparaíso, Chile";
+const ADDRESS_TXT = "Calle San Antonio 10, sector Granallas, Putaendo";
 const LAT = -32.624112;
 const LNG = -70.739275;
 
@@ -14,12 +14,12 @@ const MAPS_LINK = `https://maps.google.com/?q=${LAT},${LNG}`;
                 Nuestra Ubicación
             </h2>
             <p class="mt-2 text-mediumBrown">
-                Encuéntranos en <span class="font-semibold text-darkBrown"
-                    >{ADDRESS_TXT}</span
-                >
+                Encuéntranos en
+                <span class="font-semibold text-darkBrown">{ADDRESS_TXT}</span>
             </p>
         </header>
 
+        <!-- GRID principal -->
         <div class="grid md:grid-cols-3 gap-8 items-start">
             <!-- Mapa -->
             <div class="md:col-span-2">
@@ -40,7 +40,7 @@ const MAPS_LINK = `https://maps.google.com/?q=${LAT},${LNG}`;
 
             <!-- Info lateral -->
             <aside
-                class="bg-white rounded-2xl shadow p-6 ring-1 ring-black/5 flex flex-col justify-between"
+                class="bg-white rounded-2xl shadow p-6 ring-1 ring-black/5 flex flex-col justify-between h-full"
             >
                 <div>
                     <h3 class="text-xl font-semibold text-darkBrown">
@@ -62,17 +62,55 @@ const MAPS_LINK = `https://maps.google.com/?q=${LAT},${LNG}`;
                     >
                         Ver en Google Maps
                     </a>
-
-                    <a
-                        href="https://wa.me/569XXXXXXXX?text=Hola%20Colmenares%20Ch%C3%A1vez%2C%20quisiera%20saber%20c%C3%B3mo%20llegar%20a%20su%20ubicaci%C3%B3n"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center justify-center gap-2 rounded-xl border border-darkBrown text-darkBrown px-4 py-2.5 font-medium hover:bg-cream transition"
-                    >
-                        Escribir por WhatsApp
-                    </a>
                 </div>
             </aside>
+        </div>
+
+        <!-- Sección VISÍTANOS -->
+        <div class="mt-12 bg-white rounded-2xl shadow p-8 ring-1 ring-black/5">
+            <h3 class="text-2xl md:text-3xl font-semibold text-darkBrown mb-4">
+                🏡 Visítanos
+            </h3>
+            <p class="text-mediumBrown mb-4">Sala de ventas y producción</p>
+            <p class="text-mediumBrown mb-4">
+                Conoce de cerca cómo elaboramos nuestros productos apícolas. En
+                Colmenares Chávez contamos con una sala de ventas abierta al
+                público en el sector de Granallas, ubicada a 3 kilómetros del
+                centro de Putaendo.
+            </p>
+            <p class="text-mediumBrown mb-4">
+                Quienes nos visitan pueden conocer el lugar donde producimos
+                nuestra miel y observar parte del proceso apícola, realizado con
+                altos estándares de calidad e higiene. Aquí encontrarás miel,
+                propóleo, polen y velas de cera de abeja, junto con información
+                directa sobre su origen y características.
+            </p>
+            <p class="text-mediumBrown mb-4">
+                🕓 <span class="font-medium text-darkBrown"
+                    >Horario de atención:</span
+                >
+                Todos los días de 08:30 a 21:00 horas
+            </p>
+            <p class="text-mediumBrown mb-6">
+                🚚 <span class="font-medium text-darkBrown"
+                    >Envíos a todo Chile:</span
+                >
+                Realizamos despachos mediante Blue Express, garantizando un servicio
+                rápido y seguro a cualquier región del país.
+            </p>
+            <p class="text-mediumBrown mb-4">
+                💬 ¿Quieres cotizar o hacer un pedido? Escríbenos directamente
+                por WhatsApp — te responderemos a la brevedad.
+            </p>
+
+            <a
+                href="https://wa.me/56982116087?text=Hola!%20Me%20gustaría%20saber%20más%20sobre%20sus%20productos%20o%20charlas%20de%20apicultura."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-yellowLight text-darkBrown font-medium px-5 py-2 hover:bg-darkBrown hover:text-yellowLight transition"
+            >
+                💬 Escribir por WhatsApp
+            </a>
         </div>
     </div>
 </section>

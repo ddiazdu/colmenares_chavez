@@ -1,420 +1,100 @@
-<section
-    id="productos"
-    class="bg-cream py-24 px-4 md:px-8 relative overflow-hidden"
->
-    <div class="max-w-7xl mx-auto text-center mb-16">
-        <h2
-            class="text-4xl md:text-5xl font-bold text-darkBrown title_quacker mb-4"
-        >
-            Nuestros Productos
-        </h2>
-        <p
-            class="text-mediumBrown text-lg md:text-xl font-raleway max-w-3xl mx-auto leading-relaxed"
-        >
-            Cada producto refleja nuestra pasión por la apicultura y el
-            compromiso con la naturaleza. Calidad, sabor y tradición en cada
-            frasco.
-        </p>
-    </div>
+---
+const WHATSAPP_URL =
+    "https://wa.me/56982116087?text=Hola%20Colmenares%20Ch%C3%A1vez%2C%20quisiera%20consultar%20por%20sus%20productos.";
 
-    <!-- Grid de productos -->
-    <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        <!-- Producto 1 -->
-        <div
-            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
-        >
-            <img
-                src="/products/miel_quillay.png"
-                alt="Miel 100% Natural"
-                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <div class="p-6 flex flex-col flex-1">
-                <span
-                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
-                    >Miel Natural</span
-                >
-                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
-                    Miel 100% Natural
-                </h3>
-                <ul
-                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
-                >
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Libre de ingredientes
-                        artificiales
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Antibacteriana
-                        & antioxidante
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Sin edulcorantes
-                        añadidos
-                    </li>
-                </ul>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
-                    >Pedir</button
-                >
-            </div>
+const PRODUCTS = [
+    {
+        name: "Miel multifloral",
+        description: `Miel 100% natural, sin aditivos ni preservantes, elaborada a partir del néctar de diversas flores del Valle de Putaendo.
+La cosecha se realiza una vez al año, durante el verano, cuando alcanza su punto justo de madurez.
+De sabor equilibrado y textura suave, refleja la diversidad floral y la pureza del entorno.`,
+        img: "/products/miel_multifloral_pet.png",
+    },
+    {
+        name: "Miel de quillay",
+        description: `Proveniente del néctar del quillay, árbol nativo de Chile.
+De color ámbar intenso y sabor profundo con notas amaderadas y florales, destaca por su alto contenido de antioxidantes y propiedades antibacterianas.
+Un producto que refleja la autenticidad del valle y el valor del bosque nativo chileno.`,
+        img: "/products/miel_quillay.png",
+    },
+    {
+        name: "Polen",
+        description: `Natural y rico en nutrientes esenciales, el polen aporta energía, proteínas y vitaminas.
+Secado artesanalmente, conserva todas sus propiedades y es ideal para una alimentación equilibrada.`,
+        img: "/products/polen.png",
+    },
+    {
+        name: "Propóleo",
+        description: `Elaborado a partir de resinas vegetales, el propóleo puro es reconocido por sus propiedades antibacterianas, antioxidantes y fortalecedoras del sistema inmune.`,
+        img: "/products/propoleo.png",
+    },
+    {
+        name: "Velas de cera de abeja",
+        description: `Hechas con cera natural pura, conservan su aroma y tono dorado característico.
+Son libres de parafina y componentes tóxicos, por lo que no contaminan el aire ni afectan la salud.
+Un producto sustentable y 100% natural.`,
+        img: "/products/velas_cera.png",
+    },
+];
+---
+
+<section id="productos" class="w-full py-20 px-4 bg-cream">
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-darkBrown">
+                Nuestros productos
+            </h2>
+            <p class="mt-3 text-mediumBrown text-lg">
+                Sabores puros del Valle de Putaendo
+            </p>
+            <p class="mt-2 max-w-2xl mx-auto text-mediumBrown/90">
+                Miel, propóleo, polen y cera natural elaborados de forma
+                artesanal, respetando el trabajo de las abejas y la naturaleza
+                que las rodea.
+            </p>
+        </header>
+
+        <div class="space-y-8">
+            {
+                PRODUCTS.map((p) => (
+                    <article class="bg-white rounded-3xl shadow ring-1 ring-black/5 overflow-hidden flex flex-col md:flex-row md:items-stretch">
+                        {/* panel imagen */}
+                        <div class="md:w-2/5 bg-yellowLight/60 relative min-h-[180px] md:min-h-[240px] flex items-center justify-center">
+                            <img
+                                src={p.img ?? DEFAULT_IMG}
+                                alt={p.name}
+                                loading="lazy"
+                                class="h-40 md:h-56 object-contain drop-shadow-xl"
+                            />
+                        </div>
+
+                        {/* texto */}
+                        <div class="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                            <h3 class="text-xl font-semibold text-darkBrown">
+                                {p.name}
+                            </h3>
+                            <p class="mt-3 text-mediumBrown leading-relaxed whitespace-pre-line">
+                                {p.description}
+                            </p>
+                        </div>
+                    </article>
+                ))
+            }
         </div>
 
-        <!-- Producto 2 -->
-        <div
-            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
-        >
-            <!-- Imagen del producto -->
-            <img
-                src="/products/miel_multifloral.png"
-                alt="Miel Multifloral"
-                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            />
-
-            <!-- Contenido -->
-            <div class="p-6 flex flex-col flex-1">
-                <!-- Badge de categoría -->
-                <span
-                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
-                >
-                    Miel Natural
-                </span>
-
-                <!-- Título del producto -->
-                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
-                    Miel Multifloral
-                </h3>
-
-                <!-- Lista de beneficios -->
-                <ul
-                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
-                >
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Flores endémicas
-                        de Putaendo
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Antibacteriana
-                        & antioxidante
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Fuente natural
-                        de energía
-                    </li>
-                </ul>
-
-                <!-- Botón de acción -->
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
-                >
-                    Pedir
-                </button>
-            </div>
-        </div>
-
-        <!-- Producto 3 -->
-        <div
-            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
-        >
-            <img
-                src="/products/miel_multifloral_pet.png"
-                alt="Miel Multifloral envase Pet"
-                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <div class="p-6 flex flex-col flex-1">
-                <span
-                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
-                    >Miel Pet</span
-                >
-                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
-                    Miel Multifloral Pet
-                </h3>
-                <ul
-                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
-                >
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Flores endémicas
-                        de Putaendo
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Antibacteriana
-                        & antioxidante
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Sin edulcorantes
-                        añadidos
-                    </li>
-                </ul>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
-                    >Pedir</button
-                >
-            </div>
-        </div>
-
-        <!-- Producto 4 -->
-        <div
-            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
-        >
-            <img
-                src="/products/propoleo.png"
-                alt="Propóleo"
-                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <div class="p-6 flex flex-col flex-1">
-                <span
-                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
-                    >Propóleo</span
-                >
-                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
-                    Propóleo
-                </h3>
-                <ul
-                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
-                >
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Antibacteriano
-                        & antifúngico
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Fortalece el
-                        sistema inmune
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Cicatrizante
-                        natural
-                    </li>
-                </ul>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
-                    >Pedir</button
-                >
-            </div>
-        </div>
-
-        <!-- Producto 5 -->
-        <div
-            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
-        >
-            <img
-                src="/products/propoleo_spray.png"
-                alt="Propóleo Spray"
-                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <div class="p-6 flex flex-col flex-1">
-                <span
-                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
-                    >Spray</span
-                >
-                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
-                    Propóleo Spray
-                </h3>
-                <ul
-                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
-                >
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Alivio del
-                        dolor de garganta
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Antiséptico
-                        bucal
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Fortalece el
-                        sistema inmune
-                    </li>
-                </ul>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
-                    >Pedir</button
-                >
-            </div>
-        </div>
-
-        <!-- Producto 6 -->
-        <div
-            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
-        >
-            <img
-                src="/products/polen.png"
-                alt="Polen"
-                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <div class="p-6 flex flex-col flex-1">
-                <span
-                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
-                    >Polen</span
-                >
-                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
-                    Polen
-                </h3>
-                <ul
-                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
-                >
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Fuente de vitaminas
-                        y proteínas
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Energizante
-                        natural
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Refuerza el
-                        sistema inmune
-                    </li>
-                </ul>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
-                    >Pedir</button
-                >
-            </div>
-        </div>
-
-        <!-- Producto 7 -->
-        <div
-            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
-        >
-            <img
-                src="/products/cera_abeja.png"
-                alt="Cera de Abeja"
-                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <div class="p-6 flex flex-col flex-1">
-                <span
-                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
-                    >Cera</span
-                >
-                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
-                    Cera de Abeja
-                </h3>
-                <ul
-                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
-                >
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Ecológica &
-                        Biodegradable
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Base para cosmética
-                        natural
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Sellante antibacteriano
-                    </li>
-                </ul>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
-                    >Pedir</button
-                >
-            </div>
-        </div>
-
-        <!-- Producto 8 -->
-        <div
-            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
-        >
-            <img
-                src="/products/velas_cera.png"
-                alt="Velas de Cera"
-                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <div class="p-6 flex flex-col flex-1">
-                <span
-                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
-                    >Velas</span
-                >
-                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
-                    Velas de Cera
-                </h3>
-                <ul
-                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
-                >
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Sin químicos
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Aromaterapia
-                        natural
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Ecológicas
-                        y biodegradables
-                    </li>
-                </ul>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
-                    >Pedir</button
-                >
-            </div>
-        </div>
-
-        <!-- Producto 9 -->
-        <div
-            class="card-product bg-yellowLight/30 border-2 border-yellowLight rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden"
-        >
-            <img
-                src="/products/llaveros.png"
-                alt="Llaveros"
-                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <div class="p-6 flex flex-col flex-1">
-                <span
-                    class="inline-block bg-yellowLight text-darkBrown text-sm font-semibold px-3 py-1 rounded-full mb-4 self-start"
-                    >Artesanía</span
-                >
-                <h3 class="product-name text-2xl font-bold text-darkBrown mb-3">
-                    Llaveros a Crochet
-                </h3>
-                <ul
-                    class="text-mediumBrown font-raleway space-y-2 text-[15px] mb-4"
-                >
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Hechos a mano
-                        en Putaendo
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Fibras naturales
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-darkBrown text-lg">✓</span> Diseños únicos
-                    </li>
-                </ul>
-                <button
-                    class="btn-whatsapp mt-auto px-4 py-2 bg-darkBrown text-yellowLight font-semibold rounded hover:bg-yellowLight hover:text-darkBrown border-2 border-darkBrown transition-all duration-300"
-                    >Pedir</button
-                >
-            </div>
+        <div class="mt-12 flex flex-col items-center">
+            <p class="text-sm text-mediumBrown text-center max-w-2xl">
+                Para precios, formatos y disponibilidad actual, escríbenos
+                directo.
+            </p>
+            <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-flex items-center justify-center gap-2 rounded-xl bg-darkBrown text-white px-6 py-3 font-medium hover:bg-mediumBrown transition"
+            >
+                Consultar por productos
+            </a>
         </div>
     </div>
 </section>
-
-<script>
-    const numero = "+56950685606"; // tu número WhatsApp
-    // Selecciona todos los botones de WhatsApp
-    document.querySelectorAll(".btn-whatsapp").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-            // Asegurarse de que e.target exista
-            const target = e.target;
-            if (!(target instanceof HTMLElement)) return;
-
-            // Buscar la card contenedora
-            const card = target.closest(".card-product");
-            if (!card) return;
-
-            // Obtener el nombre del producto de forma segura
-            const nombreProductoEl = card.querySelector(".product-name");
-            if (!(nombreProductoEl instanceof HTMLElement)) return;
-
-            const nombreProducto = nombreProductoEl.innerText;
-            if (!nombreProducto) return;
-
-            // Generar el link de WhatsApp
-            const mensaje = `Hola! Me interesa el producto ${nombreProducto} y quiero más información.`;
-            const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
-            // Abrir WhatsApp en una nueva pestaña
-            window.open(url, "_blank");
-        });
-    });
-</script>
